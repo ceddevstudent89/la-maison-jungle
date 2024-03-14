@@ -1,0 +1,30 @@
+.lmj-form {
+  padding: 10px;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.lmj-form-btn {
+  width: 40%;
+  margin: auto;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: lightgreen;
+  cursor: pointer;
+}
+
+.lmj-form-title {
+  text-align: center;
+}
+
+textarea {
+  padding: 10px;
+  height: 200px;
+  resize: none;
+}
