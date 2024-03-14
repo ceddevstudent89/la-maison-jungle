@@ -1,16 +1,16 @@
 import Sun from "../assets/sun.svg";
+import Water from "../assets/water.svg";
 
-export default function CareScale(props) {
-  console.log(props);
-
-  const scaleValue = props.scaleValue;
-
+export default function CareScale({ scaleValue, careType }) {
   const range = [1, 2, 3];
 
+  const scaleType = careType === "light" ? "☀️" : "💧";
   return (
     <div>
       {range.map((rangeElement) =>
-        scaleValue >= rangeElement ? <img src={Sun} alt="Soleil" /> : null
+        scaleValue >= rangeElement ? (
+          <span key={rangeElement.toString()}>{scaleType}</span>
+        ) : null
       )}
     </div>
   );

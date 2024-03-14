@@ -1,6 +1,7 @@
 import { plantList } from "../datas/plantList";
 import "../styles/ShoppingList.css";
 import CareScale from "./CareScale";
+import PlantItem from "./PlantItem";
 
 export default function ShoppingList() {
   // Création d'un tableau avec les différentes catégories
@@ -21,17 +22,14 @@ export default function ShoppingList() {
         ))}
       </ul>
       <ul className="lmj-plant-list">
-        {plantList.map((plant) => (
-          <li key={`${plant.id}`} className="lmj-plant-item">
-            {plant.name}
-            {plant.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-            {plant.isBestSale && <span>🔥</span>}
-            {(plant.isBestSale || plant.category === "classique") && (
-              <span>🌿</span>
-            )}
-            {plant.category === "extérieur" && <span>🏡</span>}
-            <CareScale scaleValue={plant.light} />
-          </li>
+        {plantList.map(({ id, cover, name, water, light }) => (
+          <PlantItem
+            id={id}
+            cover={cover}
+            name={name}
+            water={water}
+            light={light}
+          />
         ))}
       </ul>
     </>
