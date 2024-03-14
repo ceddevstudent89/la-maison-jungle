@@ -15,10 +15,10 @@ export default function ShoppingList() {
   console.log(categories);
 
   return (
-    <>
+    <div className="lmj-shopping-list">
       <ul>
         {categories.map((cat) => (
-          <li key={cat}>{cat}</li>
+          <li key={cat}>🪴{cat}</li>
         ))}
       </ul>
       <ul className="lmj-plant-list">
@@ -33,6 +33,6 @@ export default function ShoppingList() {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
