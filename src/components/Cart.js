@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "../styles/Cart.css";
 
-export default function Cart() {
+// Je récupère les props cart set setCart
+export default function Cart({ cart, setCart }) {
   const monsteraPrice = 8;
   // const ivyPrice = 10;
   // const flowerPrice = 15;
 
-  const [cart, setCart] = useState(0);
+  // Je fais remonter cart au parent App.js
+  // const [cart, setCart] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
   return isOpen ? (
@@ -19,7 +21,8 @@ export default function Cart() {
       </button>
       <h2>Panier</h2>
       <div>Monstera : {monsteraPrice}€</div>
-      <button onClick={() => setCart(cart + 1)}>Ajouter</button>
+      {/* Je profite pour supprimer mon bouton "Ajouter */}
+      {/* <button onClick={() => setCart(cart + 1)}>Ajouter</button> */}
       <h3>Total : {monsteraPrice * cart}€</h3>
     </div>
   ) : (
