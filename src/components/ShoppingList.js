@@ -15,6 +15,22 @@ export default function ShoppingList({ cart, setCart }) {
 
   console.log(categories);
 
+  function addToCart(name, price) {
+    const currentplantAdded = cart.find((plant) => plant.name === name);
+
+    if (currentplantAdded) {
+      const cartFilteredCurrentPlant = cart.filter(
+        (plant) => plant.mame !== name
+      );
+      setCart([
+        ...cartFilteredCurrentPlant,
+        { name, price, amount: currentplantAdded.amount + 1 },
+      ]);
+    } else {
+      setCart([...cart, { name, price, amount: 1 }]);
+    }
+  }
+
   return (
     <div className="lmj-shopping-list">
       <ul>
@@ -23,11 +39,11 @@ export default function ShoppingList({ cart, setCart }) {
         ))}
       </ul>
       <ul className="lmj-plant-list">
-        {plantList.map(({ id, cover, name, water, light }) => (
+        {plantList.map(({ id, cover, name, water, light, price }) => (
           <div key={id}>
             <PlantItem cover={cover} name={name} water={water} light={light} />
             {/* je lui passe setCart. */}
-            <button onClick={() => setCart(cart + 1)}>Ajouter</button>
+            <button onClick={() => addToCart(name, price)}>Ajouter</button>
           </div>
         ))}
       </ul>
